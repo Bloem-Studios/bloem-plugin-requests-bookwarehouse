@@ -16,7 +16,7 @@ The plugin is distributed through the [Bloem plugin catalog](https://github.com/
 You need:
 
 1. A Bookwarehouse server that Bloem Server can reach over HTTPS (plain HTTP only on a network you trust), and an API key for it.
-2. The Bookwarehouse storage plugin (`bloem.storage.bookwarehouse`), a Bookwarehouse storage source, and an enabled ebook library that reads from it. The library must belong to the default organization, or be a platform library granted to it. Native storage needs its own approval in Bloem; see the catalog's [Bookwarehouse installation guide](https://github.com/Bloem-Studios/bloem-plugins/blob/main/docs/bookwarehouse-installation.md).
+2. The Bookwarehouse storage plugin (`bloem.storage.bookwarehouse`), a Bookwarehouse storage source, and an enabled ebook library that reads from it. The library must belong to the default organization, or be a platform library granted to it. Install it from the catalog's **Storage** tab; the [storage plugin's README](https://github.com/Bloem-Studios/bloem-plugin-bookwarehouse#install) has the steps.
 3. A platform administrator account that is an active member of the default organization.
 
 Then, in Bloem's admin console:
@@ -77,4 +77,4 @@ Report vulnerabilities privately through GitHub's private vulnerability reportin
 
 ## Licence
 
-Licensed under the [GNU Affero General Public License v3](LICENSE). Releases published before this licence change were published under the Bloem Studios Proprietary Plugin License and stay under it.
+Licensed under the [GNU Affero General Public License v3](LICENSE). Earlier releases were published under the Bloem Studios Proprietary Plugin License and stay under it.
