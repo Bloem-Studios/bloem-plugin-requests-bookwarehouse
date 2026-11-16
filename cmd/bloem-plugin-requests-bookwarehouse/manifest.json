@@ -1,0 +1,100 @@
+{
+  "plugin_id": "bloem.requests.bookwarehouse",
+  "version": "0.1.5",
+  "silo_api_version": "v1",
+  "supported_platforms": [
+    {
+      "os": "linux",
+      "arch": "amd64"
+    },
+    {
+      "os": "linux",
+      "arch": "arm64"
+    },
+    {
+      "os": "darwin",
+      "arch": "arm64"
+    }
+  ],
+  "capabilities": [
+    {
+      "type": "request_router.v1",
+      "id": "bookwarehouse",
+      "display_name": "Bookwarehouse ebook requests",
+      "description": "Request ebooks by ISBN and follow their progress in Bookwarehouse, even before they are in a library.",
+      "metadata": {
+        "supported_media_types": [
+          "book"
+        ]
+      },
+      "request_router": {
+        "wording": {
+          "step": "Acquiring",
+          "queued": {
+            "label": "Searching",
+            "detail": "Bookwarehouse is searching for the ebook."
+          },
+          "downloading": {
+            "label": "Downloading",
+            "detail": "Bookwarehouse is downloading the ebook."
+          }
+        }
+      },
+      "config_schema": [
+        {
+          "key": "connection",
+          "title": "Bookwarehouse request connection",
+          "json_schema": "{\"type\":\"object\",\"properties\":{\"allow_http\":{\"type\":\"boolean\",\"default\":false},\"allow_pdf\":{\"type\":\"boolean\",\"default\":false},\"preferred_format\":{\"type\":\"string\",\"enum\":[\"epub\",\"pdf\"],\"default\":\"epub\"}},\"additionalProperties\":false}",
+          "admin_form": {
+            "fields": [
+              {
+                "key": "allow_http",
+                "label": "Allow HTTP",
+                "description": "Connect over unencrypted http. Only on a network you trust.",
+                "control": "ADMIN_FORM_CONTROL_SWITCH",
+                "default_value": false
+              },
+              {
+                "key": "allow_pdf",
+                "label": "Allow PDF",
+                "description": "Let people request PDFs, not only EPUBs.",
+                "control": "ADMIN_FORM_CONTROL_SWITCH",
+                "default_value": false
+              },
+              {
+                "key": "preferred_format",
+                "label": "Ebook format",
+                "control": "ADMIN_FORM_CONTROL_SELECT",
+                "default_value": "epub",
+                "dynamic_options": true,
+                "options": [
+                  {
+                    "value": "epub",
+                    "label": "EPUB"
+                  },
+                  {
+                    "value": "pdf",
+                    "label": "PDF"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "presentation": {
+    "display_name": "Bookwarehouse ebook requests",
+    "summary": "Routes approved ebook requests to Bookwarehouse.",
+    "description_markdown": "Requests EPUB ebooks by ISBN and tracks Bookwarehouse acquisition separately from availability in a Bloem library.",
+    "setup_markdown": "Configure a Bookwarehouse connection, enable the ebook request policy for the organization, and bind the native ebook library. Ebook requests are disabled by default and serve the default organization only. Audiobook requests are handled by the separate Audiobook requests plugin.",
+    "homepage_url": "https://github.com/Bloem-Studios/bloem-plugins",
+    "source_url": "https://github.com/Bloem-Studios/bloem-plugin-requests-bookwarehouse",
+    "support_url": "https://github.com/Bloem-Studios/bloem-plugin-requests-bookwarehouse",
+    "changelog_url": "https://github.com/Bloem-Studios/bloem-plugins/releases",
+    "publisher_name": "Bloem Studios",
+    "publisher_url": "https://github.com/Bloem-Studios",
+    "license_spdx": "AGPL-3.0-only"
+  }
+}
